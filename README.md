@@ -1,12 +1,44 @@
 # objectdetectiontest
 
-1. Clone the repository to the local directory
-2. Change directory into research
+## Clone the repository to the local directory
 ```
-$ cd objectdetectiontest/research
+$ git clone https://github.com/koheikawata/objectdetectiontest.git
 ```
-3. Protbuf compilation
-Compile the Protobuf libraries before using the framework. I saw erros many times, and then manually install and complie.
+
+## Dependency check
+Dependency among Tensorflow, CUDA, cuDNN
+
+https://www.tensorflow.org/install/source#tested_build_configurations
+
+### Tensorflow
+```
+$ conda list | grep tensorflow
+```
+
+### CUDA version
+```
+$ nvcc --version
+```
+or
+```
+cat /usr/local/cuda/version.txt
+```
+
+### cuDNN version
+```
+cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2
+```
+
+* Example
+    * tensorflow_gpu-1.12.0
+    * CUDA Version 9
+    * cuDNN 7
+
+
+
+
+- Protbuf compilation
+Compile the Protobuf libraries at research directory before using the framework. I saw erros many times, and then manually install and complie.
 ```
 $ pwd
 ~/objectdetectiontest/research
@@ -15,7 +47,8 @@ $ wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0
 $ unzip protobuf.zip
 $ ./bin/protoc object_detection/protos/*.proto --python_out=.
 ```
-4. Add libraries to PYTHONPATH
+
+3. Add libraries to PYTHONPATH
 research and slim directory should be appended to PYTHONPATH. In research directory, run the command below.
 ```
 $ pwd
@@ -23,7 +56,9 @@ $ pwd
 
 $ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 ```
+
 To make sure if it is correctly installed, run the test command below in research directory
 ```
 python object_detection/builders/model_builder_test.py
 ```
+
