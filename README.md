@@ -21,23 +21,29 @@ $ nvcc --version
 ```
 or
 ```
-cat /usr/local/cuda/version.txt
+$ cat /usr/local/cuda/version.txt
 ```
 
 ### cuDNN version
 ```
-cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2
+$ cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2
 ```
-
 * Example
     * tensorflow_gpu-1.12.0
     * CUDA Version 9
     * cuDNN 7
 
+### Install libraries
+```
+$ pip install -user cython
+$ pip install -user contextlib2
+$ pip install -user pillow
+$ pip install -user lxml
+$ pip install -user jupyter
+$ pip install -user matplotlib
+```
 
-
-
-- Protbuf compilation
+## Protbuf compilation
 Compile the Protobuf libraries at research directory before using the framework. I saw erros many times, and then manually install and complie.
 ```
 $ pwd
@@ -48,7 +54,7 @@ $ unzip protobuf.zip
 $ ./bin/protoc object_detection/protos/*.proto --python_out=.
 ```
 
-3. Add libraries to PYTHONPATH
+## Add libraries to PYTHONPATH
 research and slim directory should be appended to PYTHONPATH. In research directory, run the command below.
 ```
 $ pwd
@@ -56,7 +62,7 @@ $ pwd
 
 $ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 ```
-
+## Test installation
 To make sure if it is correctly installed, run the test command below in research directory
 ```
 python object_detection/builders/model_builder_test.py
