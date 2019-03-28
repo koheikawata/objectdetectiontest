@@ -145,12 +145,12 @@ $ python object_detection/legacy/train.py --logostderr --pipeline_config_path=fa
 ```
 ## Evaluate the model
 ```
-python object_detection/legacy/eval.py --logostderr --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config --checkpoint_dir=checkpoint_test1 --eval_dir=checkpoint_test1
+$ python object_detection/legacy/eval.py --logostderr --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config --checkpoint_dir=checkpoint_test1 --eval_dir=checkpoint_test1
 ```
 
 ## Launch Tensorboard
 Add inbound port rule to Virtual Machine through Azure portal. In this case 6006 is open.
 ```
-tensorboard --logdir=checkpoint_test1 --port 6006
+$ tensorboard --logdir=checkpoint_test1 --port 6006
 ```
 Access through your browser
