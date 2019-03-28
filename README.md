@@ -68,3 +68,26 @@ To make sure if it is correctly installed, run the test command below in researc
 python object_detection/builders/model_builder_test.py
 ```
 
+
+```
+.
+├── research
+|   ├── object_detection
+|   |   ├── checkpoint_test1
+|   |   |   └── eval_images
+|   |   ├── legacy
+|   |   |   ├── train.py
+|   |   |   └── eval.py
+|   |   └── output_test1
+|   |       ├── Annotations
+|   |       |   └── ***.xml
+|   |       ├── JPEGImages
+|   |       |   └── ***.jpg
+|   |       ├── pascal_label_map.pbtxt
+|   |       ├── train.record
+|   |       └── val.record
+|   ├── faster_rcnn_resnet101_coco_2018_01_28
+|   |   └── model.ckpt
+|   ├── faster_rcnn_resnet101_coco_test1.config
+└───└── create_tf_record.py
+'''
