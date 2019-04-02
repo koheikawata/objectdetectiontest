@@ -167,3 +167,4 @@ python object_detection/export_inference_graph.py \
     --trained_checkpoint_prefix=FULLPATH/research/test1/checkpoints/model.ckpt-4495 \
     --output_directory=FULLPATH/research/test1/output
 ```
+
