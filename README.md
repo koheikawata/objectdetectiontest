@@ -2,7 +2,7 @@
 
 ## Clone the repository to the local directory
 ```
-$ git clone https://github.com/koheikawata/objectdetectiontest.git
+$ git clone https://github.com/tensorflow/models.git
 ```
 
 ## Dependency check
