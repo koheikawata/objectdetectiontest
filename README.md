@@ -154,3 +154,12 @@ Add inbound port rule to Virtual Machine through Azure portal. In this case 6006
 $ tensorboard --logdir=checkpoint_test1 --port 6006
 ```
 Access through your browser
+
+## Export frozen model
+```
+$ python object_detection/export_inference_graph.py \
+    --input_type image_tensor \
+    --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config \
+    --trained_checkpoint_prefix=FULLPATH/research/checkpoint_test1/model.ckpt-4495 \
+    --output_directory=FULLPATH/research/checkpoint_test1/output
+```
