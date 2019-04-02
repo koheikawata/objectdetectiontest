@@ -164,7 +164,7 @@ Access through your browser
 python object_detection/export_inference_graph.py \
     --input_type image_tensor \
     --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config \
-    --trained_checkpoint_prefix=FULLPATH/research/test1/checkpoints/model.ckpt-4495 \
-    --output_directory=FULLPATH/research/test1/output
+    --trained_checkpoint_prefix=FULLPATH/research/object_detection/test1/checkpoints/model.ckpt-xxxx \
+    --output_directory=FULLPATH/research/object_detection/test1/output
 ```
 
