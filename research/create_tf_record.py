@@ -17,11 +17,11 @@ from object_detection.utils import label_map_util
 flags = tf.app.flags
 flags.DEFINE_integer('num_shards', 10, 'Number of TFRecord shards')
 flags.DEFINE_float('ratio_train', 0.8, 'Ratio of train and val')
-flags.DEFINE_string('label_map_path', 'object_detection/output_test1/pascal_label_map.pbtxt', 'Path to label map proto')
-flags.DEFINE_string('image_dir', 'object_detection/output_test1/JPEGImages', 'Path to jpg image directory')
-flags.DEFINE_string('annotation_dir', 'object_detection/output_test1/Annotations', 'Path to annotation xml directory')
-flags.DEFINE_string('train_output_path', 'object_detection/output_test1/train.record', 'Path to train output TFRecords')
-flags.DEFINE_string('val_output_path', 'object_detection/output_test1/val.record', 'Path to val output TFRecords')
+flags.DEFINE_string('label_map_path', 'object_detection/test1/pascal_label_map.pbtxt', 'Path to label map proto')
+flags.DEFINE_string('image_dir', 'object_detection/test1/JPEGImages', 'Path to jpg image directory')
+flags.DEFINE_string('annotation_dir', 'object_detection/test1/Annotations', 'Path to annotation xml directory')
+flags.DEFINE_string('train_output_path', 'object_detection/test1/train.record', 'Path to train output TFRecords')
+flags.DEFINE_string('val_output_path', 'object_detection/test1/val.record', 'Path to val output TFRecords')
 FLAGS = flags.FLAGS
 
 def dict_to_tf_example(data, label_map_dict, image_dir):
@@ -29,7 +29,6 @@ def dict_to_tf_example(data, label_map_dict, image_dir):
     with tf.gfile.GFile(img_path, 'rb') as fid:
         encoded_jpg = fid.read()
     encoded_jpg_io = io.BytesIO(encoded_jpg)
-    image = PIL.Image.open(encoded_jpg_io)
     key = hashlib.sha256(encoded_jpg).hexdigest()
     
     width = int(data['size']['width'])

@@ -112,9 +112,9 @@ tar -xzvf faster_rcnn_resnet101_coco_2018_01_28.tar.gz
   from_detection_checkpoint: true
 }
 train_input_reader {
-  label_map_path: "FULLPATH/research/object_detection/output_test1/pascal_label_map.pbtxt"
+  label_map_path: "FULLPATH/research/object_detection/test1/pascal_label_map.pbtxt"
   tf_record_input_reader {
-    input_path: "FULLPATH/research/object_detection/output_test1/train.record"
+    input_path: "FULLPATH/research/object_detection/test1/train.record"
   }
 }
 eval_config {
@@ -128,33 +128,33 @@ eval_config {
   keep_image_id_for_visualization_export: true
   include_metrics_per_category: true
   use_moving_averages: false
-  visualization_export_dir: "FULLPATH/research/object_detection/checkpoint_test1/eval_images"
+  visualization_export_dir: "FULLPATH/research/object_detection/test1/eval_images"
 }
 eval_input_reader {
-  label_map_path: "FULLPATH/research/object_detection/output_test1/pascal_label_map.pbtxt"
+  label_map_path: "FULLPATH/research/object_detection/test1/pascal_label_map.pbtxt"
   shuffle: false
   num_readers: 1
   tf_record_input_reader {
-    input_path: "FULLPATH/research/object_detection/output_test1/val.record"
+    input_path: "FULLPATH/research/object_detection/test1/val.record"
   }
 }
 ```
 ## Train the model
 ```
 # From objectdetectiontest/research
-python object_detection/legacy/train.py --logostderr --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config --train_dir=checkpoint_test1
+python object_detection/legacy/train.py --logostderr --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config --train_dir=object_detection/test1/checkpoints
 ```
 ## Evaluate the model
 ```
 # From objectdetectiontest/research
-python object_detection/legacy/eval.py --logostderr --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config --checkpoint_dir=checkpoint_test1 --eval_dir=checkpoint_test1
+python object_detection/legacy/eval.py --logostderr --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config --checkpoint_dir=object_detection/test1/checkpoints --eval_dir=object_detection/test1/checkpoints
 ```
 
 ## Launch Tensorboard
 Add inbound port rule to Virtual Machine through Azure portal. In this case 6006 is open.
 ```
 # From objectdetectiontest/research
-tensorboard --logdir=checkpoint_test1 --port 6006
+tensorboard --logdir=object_detection/test1/checkpoints --port 6006
 ```
 Access through your browser
 
@@ -164,6 +164,6 @@ Access through your browser
 python object_detection/export_inference_graph.py \
     --input_type image_tensor \
     --pipeline_config_path=faster_rcnn_resnet101_coco_test1.config \
-    --trained_checkpoint_prefix=FULLPATH/research/checkpoint_test1/model.ckpt-4495 \
-    --output_directory=FULLPATH/research/checkpoint_test1/output
+    --trained_checkpoint_prefix=FULLPATH/research/test1/checkpoints/model.ckpt-4495 \
+    --output_directory=FULLPATH/research/test1/output
 ```
