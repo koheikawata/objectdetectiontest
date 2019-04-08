@@ -86,6 +86,7 @@ python object_detection/builders/model_builder_test.py
 |   |       |   └── ***.xml
 |   |       ├── JPEGImages
 |   |       |   └── ***.jpg
+|   |       ├── flask_pics
 |   |       ├── pascal_label_map.pbtxt
 |   |       ├── train.record
 |   |       └── val.record
