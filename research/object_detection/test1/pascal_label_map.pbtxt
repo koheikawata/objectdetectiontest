@@ -1,0 +1,12 @@
+item {
+ id: 1
+ name: 'Ignition coil'
+}
+item {
+ id: 2
+ name: 'Oil level gauge'
+}
+item {
+ id: 3
+ name: 'Air cleaner'
+}
