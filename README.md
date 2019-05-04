@@ -95,7 +95,9 @@ python object_detection/builders/model_builder_test.py
     ├── faster_rcnn_resnet101_coco_test1.config
     ├── create_tf_record_test1.py
     ├── object_detection_app_test1.py
-    └── object_detection_inference_test1.py
+    ├── object_detection_inference_test1.py
+    ├── object_detection_app_test1_docker.py
+    └── Dockerfile
 ```
 ## Create TFRecords
 ```
